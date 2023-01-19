@@ -17,8 +17,9 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
 
-      - name: Put a built artifact to destination folder
+      - name: Copies a built artifact to destination folder
         run: mkdir artifacts && cp target/*.jar artifacts
+      - name: Uploads a built artifact to destination folder  
         uses: actions/upload-artifact@v3
         with:
           name: Package
