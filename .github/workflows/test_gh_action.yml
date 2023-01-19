@@ -18,8 +18,8 @@ jobs:
         run: mvn --batch-mode --update-snapshots package
 
       - name: Put a built artifact to destination folder
-      - run: mkdir artifacts && cp target/*.jar artifacts
-      - uses: actions/upload-artifact@v3
+        run: mkdir artifacts && cp target/*.jar artifacts
+        uses: actions/upload-artifact@v3
         with:
-        name: Package
-        path: artifacts
+          name: Package
+          path: artifacts
