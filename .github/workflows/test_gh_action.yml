@@ -24,3 +24,14 @@ jobs:
         with:
           name: built_artifact
           path: artifacts
+        # test
+      - name: Copying files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_KEY }}
+        #  passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
+        #  rm: true
+          source: "artifacts/your_artifact.jar"
+          target: "${{ secrets.REMOTE_DIR }}"
