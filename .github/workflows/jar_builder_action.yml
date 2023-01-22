@@ -18,23 +18,19 @@ jobs:
         run: ./mvnw package
 
       - name: Copies a built artifact to destination folder
-        run: mkdir artifacts && cp target/*.jar artifacts/your_artifact.jar
+        run: mkdir artifacts && cp target/*.jar artifacts/your_artifact1.jar
       - name: Uploads a built artifact to destination folder  
         uses: actions/upload-artifact@v3
         with:
           name: built_artifact
           path: artifacts
-        # test
       - name: Copying files to server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
-          #password: ${{ secrets.PASSWORD }} 
+          password: ${{ secrets.PASSWORD }}
           port: 22
-          key: ${{ secrets.SSH_KEY }}
-          #passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
-        #  rm: true
-          
+        #  key: ${{ secrets.SSH_KEY }}
           source: "artifacts"
           target: "${{ secrets.REMOTE_DIR }}"
