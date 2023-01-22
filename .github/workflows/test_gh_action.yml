@@ -35,6 +35,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
         #  rm: true
-          password: ${{ secrets.PASSWORD }}
+         # password: ${{ secrets.PASSWORD }}
           source: "artifacts/your_artifact.jar"
           target: "${{ secrets.REMOTE_DIR }}"
