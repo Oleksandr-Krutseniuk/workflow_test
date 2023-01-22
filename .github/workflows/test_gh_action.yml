@@ -30,11 +30,11 @@ jobs:
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
-           
+          #password: ${{ secrets.PASSWORD }} 
           port: 22
-          #key: ${{ secrets.SSH_KEY }}
+          key: ${{ secrets.SSH_KEY }}
           #passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
         #  rm: true
-          password: ${{ secrets.PASSWORD }}
+          
           source: "artifacts"
           target: "${{ secrets.REMOTE_DIR }}"
