@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    environment: workflow_secrets
     steps:
       - uses: actions/checkout@v3 #clones repo on to runner VM
       - name: Set up JDK 17
@@ -35,6 +35,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
         #  rm: true
-         # password: ${{ secrets.PASSWORD }}
+          password: ${{ secrets.PASSWORD }}
           source: "artifacts/your_artifact.jar"
           target: "${{ secrets.REMOTE_DIR }}"
